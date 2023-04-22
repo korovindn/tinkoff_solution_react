@@ -1,0 +1,31 @@
+@import '../../../index.scss';
+
+.button {
+  @include resetControll;
+  border-radius: $br;
+  padding: $space $space-l;
+  background-color: $secondary-color;
+  transition: $transition;
+  &:hover{
+    transform: scale(1.02);
+    background-color: $secondary-darkened;
+  }
+  &:active{
+    transform: scale(0.98);
+  }
+}
+
+.buttonSmall {
+  padding: $space-s $space;
+}
+
+.buttonLarge {
+  padding: $space-l $space-xl;
+}
+
+.buttonPrimary {
+  background-color: $primary-color; 
+  &:hover{
+    background-color: $primary-darkened;
+  }
+}

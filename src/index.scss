@@ -2,3 +2,26 @@ body {
   margin: 0;
   font-family: sans-serif;
 }
+
+$primary-color: rgb(255, 221, 45);
+$primary-darkened: rgb(245, 211, 35);
+$secondary-color: rgb(238, 238, 238);;
+$secondary-darkened: rgb(228, 228, 228);;
+
+$br: 5px;
+
+$border: 1px solid;
+
+$space-xs: 4px;
+$space-s: 8px;
+$space: 16px;
+$space-l: 32px;
+$space-xl: 48px;
+
+$transition: .3s;
+
+@mixin resetControll {
+  outline: 0;
+  border: 0;
+  box-sizing: border-box;
+}

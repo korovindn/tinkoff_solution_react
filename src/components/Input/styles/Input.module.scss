@@ -1,0 +1,24 @@
+@import '../../../index.scss';
+
+.input {
+  @include resetControll;
+  border-radius: $br;
+  padding: $space $space;
+  background-color: $secondary-color;
+  transition: $transition;
+  &:hover{
+    background-color: $secondary-darkened;
+  }
+  &:focus{
+    background-color: white;
+    outline: $border $secondary-color;
+  }
+}
+
+.inputSmall {
+  padding: $space-s $space-s;
+}
+
+.inputLarge {
+  padding: $space-l $space-l;
+}

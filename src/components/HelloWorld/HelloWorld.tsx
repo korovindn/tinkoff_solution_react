@@ -1,7 +1,10 @@
 import React from "react";
-import classes from "./HelloWorld.module.scss";
+import classes from "./styles/HelloWorld.module.scss";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { asyncHello, byeAction } from "./helloActions";
+import { asyncHello, asyncOneMore, byeAction } from "./redux/helloActions";
+import { Button } from "../Button/Button";
+import { Input } from "../Input/Input";
+import { Select } from "../Select/Select";
 
 export const HelloWorld: React.FC = () => {
   const hello = useAppSelector((state) => state.hello.hello);
@@ -11,8 +14,12 @@ export const HelloWorld: React.FC = () => {
       className={classes.hello}
       onClick={() => dispatch(byeAction())}
       onDoubleClick={() => dispatch(asyncHello())}
+      onContextMenu={() => dispatch(asyncOneMore())}
     >
-      {hello}
+      {hello} <Button elementSize="M">Hello</Button>
+      <Input elementSize='S' onChange={() => {}} value=''/>
+      <Select options={[{label: 'Hello', value: 'World'}]}></Select>
     </div>
+    
   );
 };
