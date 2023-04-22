@@ -14,7 +14,11 @@ export const HistoryList: React.FC = () => {
       historyState.items.filter(
         (item) =>
           !historyState.filters.date ||
-          isInRange(item.date, historyState.filters.date)
+          isInRange(item.date, historyState.filters.date) && 
+          !historyState.filters.category ||
+          item.category === historyState.filters.category &&
+          !historyState.filters.sum ||
+          item.sum <= historyState.filters.sum.from && item.sum >= historyState.filters.sum.to
       ),
     [historyState.items, historyState.filters, historyState.sort]
   );

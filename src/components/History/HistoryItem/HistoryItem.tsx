@@ -15,7 +15,8 @@ export const HistoryItem: React.FC<HistoryItemProps> = ({
   const dispatch = useAppDispatch();
   const [form] = Form.useForm();
   const save = async () => {
-    return await form.validateFields();
+    const data = await form.validateFields()
+    return {...data, sum: Number(data.sum)};
   };
   if (editedItem === id)
     return (
