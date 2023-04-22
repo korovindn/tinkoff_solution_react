@@ -1,13 +1,11 @@
 // import { dispatchType } from "../../../types/reduxTypes";
 import { id } from "../../../types/types";
-import { historyItem } from "../types/types";
+import { filters, historyItem, sort } from "../types/types";
 import {
   ADD_ITEM,
   REMOVE_ITEM,
   SET_EDITED_ITEM,
-  SET_FILTERS_CATEGORY,
-  SET_FILTERS_DATE,
-  SET_FILTERS_SUM,
+  SET_FILTERS,
   SET_ITEM,
   SET_SORT,
 } from "./historyActionTypes";
@@ -28,18 +26,11 @@ export const setItem = (item: historyItem) => {
   return {type: SET_ITEM, payload: item}
 }
 
-export const setFiltersCategory = () => {
-  return { type: SET_FILTERS_CATEGORY };
+export const setFilters = (filters: filters) => {
+  return { type: SET_FILTERS, payload: {filters} };
 };
 
-export const setFiltersSum = () => {
-  return { type: SET_FILTERS_SUM };
-};
 
-export const setFiltersDate = () => {
-  return { type: SET_FILTERS_DATE };
-};
-
-export const setSort = () => {
-  return { type: SET_SORT };
+export const setSort = (sort: sort) => {
+  return { type: SET_SORT, payload: {sort} };
 };
