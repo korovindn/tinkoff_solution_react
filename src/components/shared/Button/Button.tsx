@@ -18,7 +18,7 @@ export const Button: React.FC<ButtonProps> = ({
           : elementSize === "S"
           ? classes.buttonSmall
           : ""
-      }`}
+      } ${props.className}`}
     >
       {children}
     </button>

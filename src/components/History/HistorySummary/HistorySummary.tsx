@@ -15,8 +15,7 @@ export const HistorySummary: React.FC = () => {
   );
   return (
     <>
-      <h2>{sum} рублей</h2>
-      <h3>за месяц</h3>
+      <h2>{sum} рублей {historyState.sumRange.type}</h2>
     </>
   );
 };

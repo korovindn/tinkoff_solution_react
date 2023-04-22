@@ -5,10 +5,15 @@ body {
 
 $primary-color: rgb(255, 221, 45);
 $primary-darkened: rgb(245, 211, 35);
-$secondary-color: rgb(238, 238, 238);;
-$secondary-darkened: rgb(228, 228, 228);;
+$secondary-color: rgb(238, 238, 238);
+$secondary-darkened: rgb(228, 228, 228);
+$secondary-text: rgb(100, 100, 100);
+
+$box-shadow: 0 0 10px rgba(0,0,0,0.5);
 
 $br: 5px;
+$br-l: 10px;
+$br-xl: 20px;
 
 $border: 1px solid;
 
@@ -18,7 +23,7 @@ $space: 16px;
 $space-l: 32px;
 $space-xl: 48px;
 
-$transition: .3s;
+$transition: 0.3s;
 
 @mixin resetControll {
   outline: 0;

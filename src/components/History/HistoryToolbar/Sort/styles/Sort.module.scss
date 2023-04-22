@@ -1,0 +1,12 @@
+@import '../../../../../index.scss';
+
+.sort{
+  display: flex;
+  justify-content: space-between;
+  &Item{
+    color: $secondary-text;
+    &Active{
+      color: black;
+    }
+  }
+}

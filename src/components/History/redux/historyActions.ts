@@ -1,18 +1,38 @@
-import { dispatchType } from "../../../types/reduxTypes";
+// import { dispatchType } from "../../../types/reduxTypes";
+import {
+  ADD_ITEM,
+  REMOVE_ITEM,
+  SET_EDITED_ITEM,
+  SET_FILTERS_CATEGORY,
+  SET_FILTERS_DATE,
+  SET_FILTERS_SUM,
+  SET_SORT,
+} from "./historyActionTypes";
 
-
-export const byeAction = () => {
-  return { type: "BYE" };
+export const addItem = () => {
+  return { type: ADD_ITEM };
 };
 
-export const asyncHello = () => {
-  return (dispatch: dispatchType) => {
-    setTimeout(() => dispatch({ type: "ASYNC_HELLO" }), 1000);
-  };
+export const removeItem = () => {
+  return { type: REMOVE_ITEM };
 };
 
-export const asyncOneMore = () => {
-  return (dispatch: dispatchType) => {
-    fetch('https://jsonplaceholder.typicode.com/todos/1').then(res => res.json()).then(res => dispatch({type: "ASYNC_ONE_MORE", payload: res.title}))
-  }
-}
+export const setEditedItem = () => {
+  return { type: SET_EDITED_ITEM };
+};
+
+export const setFiltersCategory = () => {
+  return { type: SET_FILTERS_CATEGORY };
+};
+
+export const setFiltersSum = () => {
+  return { type: SET_FILTERS_SUM };
+};
+
+export const setFiltersDate = () => {
+  return { type: SET_FILTERS_DATE };
+};
+
+export const setSort = () => {
+  return { type: SET_SORT };
+};

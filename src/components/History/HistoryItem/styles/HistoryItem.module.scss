@@ -2,11 +2,14 @@
 
 .historyItem {
   border-bottom: $border $secondary-color;
+  &:last-child{
+    border-bottom: none;
+  }
   &Sum{
     
   }
   &Category{
-    color: $secondary-darkened;
+    color: $secondary-text;
     margin: $space-s 0;
   }
   &Desc{

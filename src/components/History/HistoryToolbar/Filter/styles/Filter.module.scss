@@ -1,0 +1,17 @@
+@import '../../../../../index.scss';
+
+.filter{
+  position: absolute;
+  background-color: white;
+  padding: $space-l;
+  box-shadow: $box-shadow;
+  border-radius: $br-xl;
+  &Wrapper{
+    position: relative;
+  }
+  &Item{
+    display: grid;
+    grid-template-columns: 20% 45% 45%;
+    grid-gap: 5%;
+  }
+}
