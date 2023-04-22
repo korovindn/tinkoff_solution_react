@@ -1,0 +1,1 @@
+export const LOAD_HISTORY = "HISTORY/LOAD_HISTORY"

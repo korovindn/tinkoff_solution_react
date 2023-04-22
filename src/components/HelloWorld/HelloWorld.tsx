@@ -2,9 +2,9 @@ import React from "react";
 import classes from "./styles/HelloWorld.module.scss";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { asyncHello, asyncOneMore, byeAction } from "./redux/helloActions";
-import { Button } from "../Button/Button";
-import { Input } from "../Input/Input";
-import { Select } from "../Select/Select";
+import { Button } from "../shared/Button/Button";
+import { Input } from "../shared/Input/Input";
+import { Select } from "../shared/Select/Select";
 
 export const HelloWorld: React.FC = () => {
   const hello = useAppSelector((state) => state.hello.hello);

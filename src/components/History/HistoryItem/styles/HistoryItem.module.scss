@@ -1,0 +1,15 @@
+@import '../../../../index.scss';
+
+.historyItem {
+  border-bottom: $border $secondary-color;
+  &Sum{
+    
+  }
+  &Category{
+    color: $secondary-darkened;
+    margin: $space-s 0;
+  }
+  &Desc{
+    margin: $space-s 0;
+  }
+}

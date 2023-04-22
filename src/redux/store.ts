@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { helloReducer } from "../components/HelloWorld/redux/helloReducer";
+import { historyReducer } from "../components/History/redux/historyReducer";
 
 export const store = configureStore({
   reducer: {
     hello: helloReducer,
+    history: historyReducer,
   },
 });
 

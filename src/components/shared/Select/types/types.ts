@@ -1,7 +1,7 @@
 import {
   SelectHTMLAttributes,
 } from "react";
-import { size } from "../../../types/UITypes";
+import { size } from "../../../../types/UITypes";
 
 export interface SelectOption {
   label: string;
