@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./HelloWorld.module.scss";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { asyncHello, byeAction } from "../../redux/actions";
+import { asyncHello, byeAction } from "./helloActions";
 
 export const HelloWorld: React.FC = () => {
   const hello = useAppSelector((state) => state.hello.hello);
