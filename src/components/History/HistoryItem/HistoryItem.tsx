@@ -1,10 +1,60 @@
-import { HistoryItemProps } from "./types/types"
-import classes from './styles/HistoryItem.module.scss'
+import { HistoryItemProps } from "./types/types";
+import classes from "./styles/HistoryItem.module.scss";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { setEditedItem, setItem } from "../redux/historyActions";
+import { useState } from "react";
+import {Form, Input, Button} from 'antd';
 
-export const HistoryItem: React.FC<HistoryItemProps> = ({cagtegory, sum, desc}) => {
-  return <li className={classes.historyItem}>
-    <h2 className={classes.historyItemSum}>{sum}</h2>
-    <p className={classes.historyItemCategory}>{cagtegory}</p>
-    <p className={classes.historyItemDesc}>{desc}</p>
-  </li>
-}
+export const HistoryItem: React.FC<HistoryItemProps> = ({
+  category,
+  sum,
+  desc,
+  id,
+  date,
+}) => {
+  const editedItem = useAppSelector((state) => state.history.editedItem);
+  const dispatch = useAppDispatch();
+  const [form] = Form.useForm();
+  const save = async () => {
+    // console.log(await form.validateFields())
+    return await form.validateFields()
+  }
+  if (editedItem === id)
+    return (
+      <li className={classes.historyItem}>
+      <Form form={form}>
+        <Form.Item label='Сумма' name='sum'>
+        <Input/>
+        </Form.Item>
+        <Form.Item label='Категория' name='category'>
+        <Input/>
+        </Form.Item>
+        <Form.Item label='Примечание' name='desc'>
+        <Input/>
+        </Form.Item>
+        <Form.Item>
+        <Button
+          onClick={async () => {
+            dispatch(setEditedItem(null));
+            // save();
+            dispatch(setItem({...(await save()), date, id}));
+          }}
+        >
+          Сохранить
+        </Button>
+        </Form.Item>
+        </Form>
+      </li>
+    );
+  else
+    return (
+      <li
+        className={classes.historyItem}
+        onDoubleClick={() => dispatch(setEditedItem(id))}
+      >
+        <h2 className={classes.historyItemSum}>{sum}</h2>
+        <p className={classes.historyItemCategory}>{category}</p>
+        <p className={classes.historyItemDesc}>{desc}</p>
+      </li>
+    );
+};

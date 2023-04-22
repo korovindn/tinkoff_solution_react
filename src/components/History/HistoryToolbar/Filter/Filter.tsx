@@ -1,7 +1,6 @@
+import { Button, DatePicker, Form, Input, Select } from "antd";
 import { useMemo, useState } from "react";
 import { useAppSelector } from "../../../../redux/hooks";
-import { Input } from "../../../shared/Input/Input";
-import { Select } from "../../../shared/Select/Select";
 import classes from "./styles/Filter.module.scss";
 
 export const Filter: React.FC = () => {
@@ -12,31 +11,47 @@ export const Filter: React.FC = () => {
     () =>
       historyItems.reduce(
         (cats: string[], item) =>
-          cats.includes(item.cagtegory) ? cats : [...cats, item.cagtegory],
+          cats.includes(item.category) ? cats : [...cats, item.category],
         []
       ),
     [historyItems]
   );
+  const [form] = Form.useForm()
+  const save = async () => {
+    const data = await form.validateFields();
+    
+  }
   return (
     <div className={classes.filterWrapper}>
       <span onClick={() => setVisible(!visible)}>Фильтр</span>
       {visible ? (
-        <div className={classes.filter}>
-          <div className={classes.filterItem}>
-            Дата:
-            <Input type="date" value={filters.date?.from.toLocaleString() ?? new Date().toLocaleString() }/>
-            <Input type="date" value={filters.date?.to.toLocaleString() ?? new Date().toLocaleString() }/>
-          </div>
-          <div className={classes.filterItem}>
-            Сумма:
-            <Input value={filters.sum?.from}/>
-            <Input value={filters.sum?.to}/>
-          </div>
-          <div className={classes.filterItem}>
-            Категория:
-            <Select options={categories.map(cat => ({label: cat, value: cat}))}/>
-          </div>
-        </div>
+        <Form form={form} className={classes.filter}>
+          <Form.Item label="Дата" />
+          <Form.Item name="dateFrom" label="От">
+            <DatePicker />
+          </Form.Item>
+          <Form.Item name="dateTo" label="До">
+            <DatePicker />
+          </Form.Item>
+          <Form.Item label="Сумма" />
+          <Form.Item name="sumFrom" label="От">
+            <Input value={filters.sum?.from} />
+          </Form.Item>
+          <Form.Item name="sumTo" label="До">
+            <Input value={filters.sum?.to} />
+          </Form.Item>
+          <Form.Item name="category" label="Категория">
+            <Select
+              options={categories.map((cat) => ({ label: cat, value: cat }))}
+            />
+          </Form.Item>
+          <Form.Item>
+            <Button onClick={() => {
+              save();
+              setVisible(false);
+            }}>Готово</Button>
+          </Form.Item>
+        </Form>
       ) : null}
     </div>
   );

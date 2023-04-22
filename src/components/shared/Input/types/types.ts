@@ -3,6 +3,6 @@ import { size } from "../../../../types/UITypes";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   elementSize?: size;
-  onChange?: ChangeEventHandler;
-  value?: string | number;
+  // onChange?: ChangeEventHandler;
+  // value?: string | number;
 }

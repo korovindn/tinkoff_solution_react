@@ -1,18 +1,27 @@
-import { useAppSelector } from "../../../redux/hooks";
-import { Button } from "../../shared/Button/Button";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { Button } from "antd";
 import { HistoryItem } from "../HistoryItem/HistoryItem";
-import classes from './styles/HistoryList.module.scss';
+import { addItem } from "../redux/historyActions";
+import classes from "./styles/HistoryList.module.scss";
 
 export const HistoryList: React.FC = () => {
+  const dispatch = useAppDispatch();
   const historyItems = useAppSelector((state) => state.history.items);
   return (
     <>
       <ul className={classes.historyList}>
         {historyItems.map((item) => (
-          <HistoryItem {...item} />
+          <HistoryItem {...item} key={item.id}/>
         ))}
       </ul>
-      <Button displayType="primary" elementSize="L" className={classes.addButton}>Добавить</Button>
+      <Button
+        type="primary"
+        size="large"
+        className={classes.addButton}
+        onClick={() => dispatch(addItem())}
+      >
+        Добавить
+      </Button>
     </>
   );
 };

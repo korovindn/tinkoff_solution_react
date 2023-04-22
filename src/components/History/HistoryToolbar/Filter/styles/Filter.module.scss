@@ -5,13 +5,10 @@
   background-color: white;
   padding: $space-l;
   box-shadow: $box-shadow;
-  border-radius: $br-xl;
+  // border-radius: $br-xl;
+  width: 100vw;
+  z-index: 100;
   &Wrapper{
     position: relative;
-  }
-  &Item{
-    display: grid;
-    grid-template-columns: 20% 45% 45%;
-    grid-gap: 5%;
   }
 }

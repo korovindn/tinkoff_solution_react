@@ -1,23 +1,23 @@
 import { id } from "../../../types/types";
 
 export interface sumRange {
-  from: Date;
-  to: Date;
+  from: string;
+  to: string;
   type: "за месяц" | "за год" | "за неделю" | "пользовательский";
 }
 
 export interface historyItem {
   id: id;
-  cagtegory: string;
+  category: string;
   sum: number;
-  date: Date;
+  date: string;
   desc?: string;
 }
 
 export interface filters {
   date?: {
-    from: Date;
-    to: Date;
+    from: string;
+    to: string;
   };
   sum?: {
     from: number;
@@ -27,7 +27,7 @@ export interface filters {
 }
 
 export interface sort {
-  param?: string;
+  param?: "sum" | "date" | "cat";
   order?: "asc" | "desc";
 }
 
