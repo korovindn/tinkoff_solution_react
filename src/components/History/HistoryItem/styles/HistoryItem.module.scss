@@ -1,9 +1,27 @@
 @import '../../../../index.scss';
 
 .historyItem {
+  padding: $space;
   border-bottom: $border $secondary-color;
+  display: flex;
+  gap: $space-xl;
   &:last-child{
     border-bottom: none;
+  }
+  &Image{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & img{
+      height: 75px;
+      display: block;
+    }
+  }
+  &Data{
+    flex: 3;
   }
   &Sum{
     
@@ -15,4 +33,14 @@
   &Desc{
     margin: $space-s 0;
   }
+}
+
+.selectOption{
+  &Image{
+    height: 20px;
+    margin-right: $space-s;
+    position: relative;
+    top: 4px;
+  }
+  
 }

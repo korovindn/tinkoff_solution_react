@@ -2,7 +2,11 @@ import { HistoryItemProps } from "./types/types";
 import classes from "./styles/HistoryItem.module.scss";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { setEditedItem, setItem } from "../redux/historyActions";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, DatePicker, Select } from "antd";
+import { categories, dateFormat } from "../../../constants/constants";
+import { EditedItem } from "./EditedItem";
+import { useMemo } from "react";
+import { randomColor } from "../../../helpers/helpers";
 
 export const HistoryItem: React.FC<HistoryItemProps> = ({
   category,
@@ -13,46 +17,32 @@ export const HistoryItem: React.FC<HistoryItemProps> = ({
 }) => {
   const editedItem = useAppSelector((state) => state.history.editedItem);
   const dispatch = useAppDispatch();
-  const [form] = Form.useForm();
-  const save = async () => {
-    const data = await form.validateFields()
-    return {...data, sum: Number(data.sum)};
-  };
+  const categoryLabel = useMemo(() => categories.find(cat => cat.value === category)?.label, [category])
+  const bgColor = useMemo(() => `#${randomColor()}`, [])
   if (editedItem === id)
     return (
-      <li className={classes.historyItem}>
-        <Form form={form} initialValues={{category, sum, desc}}>
-          <Form.Item label="Сумма" name="sum">
-            <Input addonAfter='рублей'/>
-          </Form.Item>
-          <Form.Item label="Категория" name="category">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Примечание" name="desc">
-            <Input />
-          </Form.Item>
-          <Form.Item>
-            <Button
-              onClick={async () => {
-                dispatch(setEditedItem(null));
-                dispatch(setItem({ ...(await save()), date, id }));
-              }}
-            >
-              Сохранить
-            </Button>
-          </Form.Item>
-        </Form>
-      </li>
+      <EditedItem
+        category={category}
+        sum={sum}
+        desc={desc}
+        id={id}
+        date={date}
+      />
     );
-  else
-    return (
-      <li
-        className={classes.historyItem}
-        onDoubleClick={() => dispatch(setEditedItem(id))}
-      >
+  return (
+    <li
+      className={classes.historyItem}
+      onDoubleClick={() => dispatch(setEditedItem(id))}
+    >
+      <div className={classes.historyItemImage} style={{backgroundColor: bgColor}}>
+        <img src={`/images/${category}.png`}/>
+      </div>
+      <div className={classes.historyItemData}>
         <h2 className={classes.historyItemSum}>{sum} рублей</h2>
-        <p className={classes.historyItemCategory}>{category}</p>
+        <p className={classes.historyItemDate}>{date.format(dateFormat)}</p>
+        <p className={classes.historyItemCategory}>{categoryLabel}</p>
         <p className={classes.historyItemDesc}>{desc}</p>
-      </li>
-    );
+      </div>
+    </li>
+  );
 };

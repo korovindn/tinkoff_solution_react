@@ -1,12 +1,22 @@
 import { AnyAction } from "redux";
-import { historyItem, historyState, sort } from "../types/types";
+import { filters, historyItem, historyState, sort } from "../types/types";
 import {
   ADD_ITEM,
+  REMOVE_ITEM,
   SET_EDITED_ITEM,
   SET_FILTERS,
   SET_ITEM,
   SET_SORT,
 } from "./historyActionTypes";
+import dayjs from "dayjs";
+
+const blankItem = (id: string) => ({
+  id: id,
+  category: "",
+  desc: "",
+  sum: 0,
+  date: dayjs(),
+})
 
 const initialState: historyState = {
   items: [
@@ -15,11 +25,10 @@ const initialState: historyState = {
       category: "random",
       desc: "random",
       sum: 1000,
-      date: "2023-04-20",
+      date: dayjs(),
     },
   ],
   editedItem: null,
-  sumRange: { from: "2023-04-03", to: "2023-05-03", type: "за месяц" },
   sort: { param: "date", order: "asc" },
   filters: {},
 };
@@ -34,15 +43,15 @@ export const historyReducer = (state = initialState, action: AnyAction) => {
         ...state,
         items: [
           ...state.items,
-          {
-            id: id,
-            category: "",
-            desc: "",
-            sum: 0,
-            date: new Date().toISOString().substring(0, 10),
-          },
+          blankItem(id),
         ],
         editedItem: id,
+      };
+
+    case REMOVE_ITEM:
+      return {
+        ...state,
+        items: state.items.filter((item) => item.id !== action.payload.id)
       };
 
     case SET_EDITED_ITEM:
@@ -64,12 +73,12 @@ export const historyReducer = (state = initialState, action: AnyAction) => {
     case SET_SORT:
       return {
         ...state,
-        sort: action.payload.sort,
+        sort: action.payload.sort as sort,
       };
     case SET_FILTERS:
       return {
         ...state,
-        filters: action.payload.filters,
+        filters: action.payload.filters as filters,
       }
     default:
       return state;

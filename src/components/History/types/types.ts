@@ -1,40 +1,38 @@
 import { id } from "../../../types/types";
+import { Dayjs } from "dayjs";
 
-export interface sumRange {
-  from: string;
-  to: string;
-  type: "за месяц" | "за год" | "за неделю" | "пользовательский";
+export interface dateRange {
+  from: Dayjs;
+  to: Dayjs;
+}
+
+export interface range {
+  from: number;
+  to: number;
 }
 
 export interface historyItem {
   id: id;
   category: string;
   sum: number;
-  date: string;
+  date: Dayjs;
   desc?: string;
 }
 
 export interface filters {
-  date?: {
-    from: string;
-    to: string;
-  };
-  sum?: {
-    from: number;
-    to: number;
-  };
+  date?: dateRange;
+  sum?: range;
   category?: string;
 }
 
 export interface sort {
-  param?: "sum" | "date" | "cat";
-  order?: "asc" | "desc";
+  param: "sum" | "date" | "category";
+  order: "asc" | "desc";
 }
 
 export interface historyState {
   items: historyItem[];
   editedItem: id | null;
-  sumRange: sumRange;
   filters: filters;
   sort: sort;
 }
