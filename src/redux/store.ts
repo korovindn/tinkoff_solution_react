@@ -7,6 +7,9 @@ export const store = configureStore({
     hello: helloReducer,
     history: historyReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false
+  }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

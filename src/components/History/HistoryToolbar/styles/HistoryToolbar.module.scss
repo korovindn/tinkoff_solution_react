@@ -1,4 +1,9 @@
+@import '../../../../index.scss';
+
 .toolbar {
-  display: grid;
-  grid-template-columns: 20% 80%;
+  display: flex;
+  gap: $space;
+  padding: $space-l $space;
+  border: $border $secondary-color;
 }
+

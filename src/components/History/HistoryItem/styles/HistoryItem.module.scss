@@ -24,23 +24,18 @@
     flex: 3;
   }
   &Sum{
-    
+    font-size: 1.8rem;
+    margin: $space 0;
   }
   &Category{
+    color: $secondary-text;
+    margin: $space-s 0;
+  }
+  &Date{
     color: $secondary-text;
     margin: $space-s 0;
   }
   &Desc{
     margin: $space-s 0;
   }
-}
-
-.selectOption{
-  &Image{
-    height: 20px;
-    margin-right: $space-s;
-    position: relative;
-    top: 4px;
-  }
-  
 }

@@ -22,8 +22,8 @@ const initialState: historyState = {
   items: [
     {
       id: "0",
-      category: "random",
-      desc: "random",
+      category: "food",
+      desc: "Вкусно и точка",
       sum: 1000,
       date: dayjs(),
     },

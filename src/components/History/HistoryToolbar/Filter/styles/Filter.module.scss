@@ -6,7 +6,7 @@
   padding: $space-l;
   box-shadow: $box-shadow;
   // border-radius: $br-xl;
-  width: 100vw;
+  width: calc(100vw - 2 * $space);
   z-index: 100;
   &Wrapper{
     position: relative;
