@@ -8,9 +8,9 @@ export const isSumInRange = (sum: number, range: range) =>
   sum >= range.from && sum <= range.to;
 
 export const fitsTheFilter = (item: historyItem, filters: filters) =>
-  (!filters.date || !filters.date.from || !filters.date.to || isDateInRange(item.date, filters.date)) &&
+  ((!filters.date || !filters.date.from || !filters.date.to || isDateInRange(item.date, filters.date)) &&
   (!filters.sum || !filters.sum.from || !filters.sum.to || isSumInRange(item.sum, filters.sum)) &&
-  (!filters.category || item.category === filters.category) || !item.sum;
+  (!filters.category || item.category === filters.category)) || !item.sum;
 
   export const itemsSorter = (sort: sort) => (a: historyItem, b: historyItem) =>
     sort.param && sort.order === "asc"

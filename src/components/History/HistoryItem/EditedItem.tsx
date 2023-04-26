@@ -2,7 +2,7 @@ import { HistoryItemProps } from "./types/types";
 import classes from "./styles/HistoryItem.module.scss";
 import { useAppDispatch } from "../../../redux/hooks";
 import { setEditedItem, setItem } from "../redux/historyActions";
-import { Form, Input, Button, DatePicker, Select } from "antd";
+import { Form, Input, Button, DatePicker } from "antd";
 import { categories } from "../../../constants/constants";
 import { CategorySelect } from "../CategorySelect/CategorySelect";
 

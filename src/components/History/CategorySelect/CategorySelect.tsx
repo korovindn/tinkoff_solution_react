@@ -16,6 +16,7 @@ export const CategorySelect: React.FC<CategorySelectProps> = ({
         >
           {cat.value ? (
             <img
+              alt={cat.label}
               src={`/images/${cat.value}.png`}
               className={classes.selectOptionImage}
             />

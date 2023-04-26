@@ -1,8 +1,7 @@
 import { HistoryItemProps } from "./types/types";
 import classes from "./styles/HistoryItem.module.scss";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { setEditedItem, setItem } from "../redux/historyActions";
-import { Form, Input, Button, DatePicker, Select } from "antd";
+import { setEditedItem } from "../redux/historyActions";
 import { categories, dateFormat } from "../../../constants/constants";
 import { EditedItem } from "./EditedItem";
 import { useMemo } from "react";
@@ -35,7 +34,7 @@ export const HistoryItem: React.FC<HistoryItemProps> = ({
       onDoubleClick={() => dispatch(setEditedItem(id))}
     >
       <div className={classes.historyItemImage} style={{backgroundColor: bgColor}}>
-        <img src={`/images/${category}.png`}/>
+        <img src={`/images/${category}.png`} alt={categoryLabel}/>
       </div>
       <div className={classes.historyItemData}>
         <h2 className={classes.historyItemSum}>{sum} рублей</h2>

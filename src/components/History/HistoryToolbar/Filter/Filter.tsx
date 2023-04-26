@@ -1,5 +1,5 @@
-import { Button, DatePicker, Form, Select, Slider, Typography } from "antd";
-import { useEffect, useMemo, useState } from "react";
+import { Button, DatePicker, Form, Slider, Typography } from "antd";
+import { useMemo, useState } from "react";
 import { categories } from "../../../../constants/constants";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { category } from "../../../../types/types";
