@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/tinkoff_solution_react/static/css/main.7be1bbb6.css",
-    "main.js": "/tinkoff_solution_react/static/js/main.85de4da3.js",
+    "main.js": "/tinkoff_solution_react/static/js/main.034408d9.js",
     "static/js/787.0ace7cdf.chunk.js": "/tinkoff_solution_react/static/js/787.0ace7cdf.chunk.js",
     "index.html": "/tinkoff_solution_react/index.html",
     "main.7be1bbb6.css.map": "/tinkoff_solution_react/static/css/main.7be1bbb6.css.map",
-    "main.85de4da3.js.map": "/tinkoff_solution_react/static/js/main.85de4da3.js.map",
+    "main.034408d9.js.map": "/tinkoff_solution_react/static/js/main.034408d9.js.map",
     "787.0ace7cdf.chunk.js.map": "/tinkoff_solution_react/static/js/787.0ace7cdf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7be1bbb6.css",
-    "static/js/main.85de4da3.js"
+    "static/js/main.034408d9.js"
   ]
 }
