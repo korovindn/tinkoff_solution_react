@@ -6,6 +6,7 @@ import { categories, dateFormat } from "../../../constants/constants";
 import { EditedItem } from "./EditedItem";
 import { useMemo } from "react";
 import { randomColor } from "../../../helpers/helpers";
+import config from "../../../config.json";
 
 export const HistoryItem: React.FC<HistoryItemProps> = ({
   category,
@@ -34,7 +35,7 @@ export const HistoryItem: React.FC<HistoryItemProps> = ({
       onDoubleClick={() => dispatch(setEditedItem(id))}
     >
       <div className={classes.historyItemImage} style={{backgroundColor: bgColor}}>
-        <img src={`/images/${category}.png`} alt={categoryLabel}/>
+        <img src={`${config.BASENAME}/images/${category}.png`} alt={categoryLabel}/>
       </div>
       <div className={classes.historyItemData}>
         <h2 className={classes.historyItemSum}>{sum} рублей</h2>
